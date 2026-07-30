@@ -2,7 +2,19 @@ aid: amedisys
 url: https://raw.githubusercontent.com/api-evangelist/amedisys/refs/heads/main/apis.yml
 name: Amedisys
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amedisys.png
 tags:
   - Home Health
   - Hospice
