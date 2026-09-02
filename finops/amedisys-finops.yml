@@ -9,8 +9,8 @@ created: '2026-05-04'
 # Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
 # bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
 method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-02'
+reconciled: true
 tags:
   - Home Health
   - Hospice
@@ -18,7 +18,10 @@ tags:
   - FinOps
   - FOCUS
 description: >-
-  FinOps scaffold for Amedisys. The company does not publish a public API billing surface. Healthcare data exchange is governed by HIPAA business-associate agreements rather than metered API billing. FOCUS mappings remain conceptual until a metered API offering is published.
+  FinOps scaffold for Amedisys. RECONCILED 2026-09-02: live probing confirmed Amedisys
+  publishes no API at all — the previously claimed api.amedisys.com and developer.amedisys.com
+  hosts have no DNS record — so there is no metered API spend to manage and the FOCUS mapping
+  below stays conceptual. The company does not publish a public API billing surface. Healthcare data exchange is governed by HIPAA business-associate agreements rather than metered API billing. FOCUS mappings remain conceptual until a metered API offering is published.
 notes: >-
   Amedisys is a home health and hospice provider; it does not publish a public API developer portal or commercial API offering. Any data exchanges with payers, EHR systems, or referral partners are governed by HIPAA-compliant integration agreements rather than a public price list. Reconcile if Amedisys publishes a public API.
 sources:
@@ -40,7 +43,7 @@ billingModel:
     - Tax
     - Adjustment
 focusColumns:
-  ServiceName: Amedisys API
+  ServiceName: Amedisys home health, hospice and palliative care services (no API)
   ServiceCategory: Healthcare
   ProviderName: Amedisys
   PublisherName: Amedisys, Inc.

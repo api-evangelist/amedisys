@@ -1,62 +1,135 @@
 aid: amedisys
-url: https://raw.githubusercontent.com/api-evangelist/amedisys/refs/heads/main/apis.yml
 name: Amedisys
+url: https://raw.githubusercontent.com/api-evangelist/amedisys/refs/heads/main/apis.yml
 type: Index
+x-type: company
+description: >-
+  Amedisys, Inc. is a United States home health, hospice, palliative and high-acuity in-home
+  care company headquartered in Baton Rouge, Louisiana. Founded in 1982, it delivers skilled
+  nursing, physical and occupational therapy, medical social work, hospice and palliative care
+  through a nationwide network of care centers, and — through Contessa, an Amedisys company —
+  hospital-level and skilled-nursing-level care delivered in the patient's home in partnership
+  with health systems and payers. Formerly listed on Nasdaq as AMED, Amedisys was acquired by
+  UnitedHealth Group's Optum in a $3.3 billion all-cash transaction that closed in August 2025
+  after a Department of Justice settlement requiring the divestiture of 164 home health and
+  hospice locations; it continues to operate under the Amedisys brand. Amedisys publishes no
+  public API: there is no developer portal, no API reference, no OpenAPI, GraphQL, AsyncAPI,
+  gRPC or SOAP contract, no SDK on any package registry, no MCP server and no A2A agent card.
+  Clinical data moves between Amedisys, its referral sources, its EHR vendors and payers under
+  HIPAA business-associate agreements and bilateral integration contracts rather than through a
+  documented public interface.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amedisys.png
+tags:
+  - Company
+  - Healthcare
+  - Home Health
+  - Hospice
+  - Palliative Care
+  - Home Care
+  - Health Systems
+  - Care Delivery
+  - Post-Acute Care
+  - Hospital at Home
 deliveryModel:
-  model: unknown
+  model: none
   open_source: false
   commercial: false
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: No callable interface — care-delivery organization, not a software vendor
+  confidence: high
   source:
-  - none
-  generated: '2026-08-28'
-  method: derived
+    - probe
+  generated: '2026-09-02'
+  method: probed
 accessModel:
-  pricing: unknown
-  onboarding: unknown
+  pricing: none
+  onboarding: none
   trial: false
   try_now: false
   public: false
-  label: Unknown
-  confidence: low
+  label: No public API access path
+  confidence: high
   source:
-  - plans
-  generated: '2026-07-22'
-  method: derived
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amedisys.png
-tags:
-  - Home Health
-  - Hospice
-  - Healthcare
-description: >-
-  Amedisys is a major US corporation and Fortune 1000 company. The Amedisys API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
+    - probe
+    - plans
+  generated: '2026-09-02'
+  method: probed
 created: '2026-04-19'
-modified: '2026-04-19'
+modified: '2026-09-02'
 specificationVersion: '0.23'
-apis:
-  - aid: amedisys:amedisys-api
-    name: Amedisys API
-    tags:
-      - Home Health
-      - Hospice
-      - Healthcare
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amedisys.com
-    humanURL: https://developer.amedisys.com
-    properties:
-      - url: https://developer.amedisys.com/docs
-        type: Documentation
-    description: >-
-      The Amedisys API provides access to platform services and data for enterprise integration and automation.
+apis: []
 common:
-  - type: DomainSecurity
-    url: security/amedisys-domain-security.yml
+  - type: Website
+    url: https://www.amedisys.com/
+  - type: About
+    url: https://www.amedisys.com/about/
+  - type: Support
+    url: https://www.amedisys.com/contact/
+  - type: FAQ
+    url: https://www.amedisys.com/faqs/
+  - type: Blog
+    url: https://resources.amedisys.com/
+  - type: TermsOfService
+    url: https://www.amedisys.com/terms-use/
+  - type: PrivacyPolicy
+    url: https://www.amedisys.com/privacy-policy/
+  - type: InvestorRelations
+    url: https://investors.amedisys.com/
+  - type: Careers
+    url: https://careers.amedisys.com/careers-home/
+  - type: Locations
+    url: https://www.amedisys.com/locations/
   - type: LinkedIn
     url: https://www.linkedin.com/company/amedisys
-  - type: Website
-    url: https://www.amedisys.com
+  - type: DomainSecurity
+    url: security/amedisys-domain-security.yml
+  - type: LLMsTxt
+    url: llms/amedisys-llms.txt
+  - type: Plans
+    url: plans/amedisys-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/amedisys-rate-limits.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+  - FN: APIs.json
+    email: info@apis.io
+x-enrichment:
+  date: '2026-09-02'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Amedisys is a home health, hospice and palliative care-delivery organization — now an
+    Optum subsidiary — whose product is nursing care in patients' homes, not software; the two
+    hosts this profile previously claimed, developer.amedisys.com and api.amedisys.com, have no
+    DNS record at all and never resolved, and on the real corporate site every discovery path
+    probed (/developers, /api, /api-docs, /openapi.json, /swagger.json, /graphql, /wp-json/,
+    /mcp, /llms.txt and nine /.well-known/* paths) returns a genuine 404 — verified genuine by
+    a control path that also 404s — while npm, PyPI and RubyGems return zero packages and the
+    only Amedisys GitHub accounts are empty shells with no public repositories.
+  evidence:
+    - url: https://developer.amedisys.com/
+      status: 0
+    - url: https://api.amedisys.com/
+      status: 0
+    - url: https://www.amedisys.com/openapi.json
+      status: 404
+    - url: https://www.amedisys.com/developers
+      status: 404
+    - url: https://www.amedisys.com/llms.txt
+      status: 404
+    - url: https://www.amedisys.com/.well-known/agent-card.json
+      status: 404
+    - url: https://www.amedisys.com/.well-known/security.txt
+      status: 404
+    - url: https://www.amedisys.com/zz-api-evangelist-control
+      status: 404
+    - url: https://api.github.com/orgs/amedisys-appdev
+      status: 200
+    - url: https://www.amedisys.com/
+      status: 200
+  checked: '2026-09-02'

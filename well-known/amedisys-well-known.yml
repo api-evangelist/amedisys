@@ -1,0 +1,104 @@
+generated: '2026-09-02'
+method: probed
+source: >-
+  Direct HTTP probes of the named RFC/community /.well-known paths against every host
+  reachable for Amedisys on 2026-09-02. No path glob was used; each path below was
+  requested individually with a browser User-Agent and redirects followed.
+provider: Amedisys
+providerId: amedisys
+description: >-
+  Amedisys serves no /.well-known documents on any host it operates. Every named path
+  returns a real HTTP 404 from the corporate WordPress site (confirmed against the control
+  path /zz-api-evangelist-control, which also 404s, so these are genuine misses and not an
+  SPA catch-all). The two hosts named in this repo's earlier profile,
+  developer.amedisys.com and api.amedisys.com, do not resolve in DNS at all — they were
+  scaffolded, never published, and have been removed from apis.yml.
+hosts:
+  - host: www.amedisys.com
+    note: >-
+      Corporate site (WordPress, Zehnder-hosted). Returns real 404s, including for a random
+      control path, so a 404 here is an honest absence rather than a catch-all.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+      - path: /.well-known/aauth-resource.json
+        status: 404
+        file: null
+  - host: resources.amedisys.com
+    note: >-
+      The Amedisys blog/resource hub; blog.amedisys.com redirects here.
+    documents:
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /llms.txt
+        status: 404
+        file: null
+  - host: investors.amedisys.com
+    note: Investor-relations microsite.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+  - host: contessahealth.com
+    note: >-
+      Contessa Health, an Amedisys company. EXCLUDED AS EVIDENCE — this host is an SPA/CMS
+      catch-all that answers HTTP 200 with the same HTML shell for every path, including the
+      control path /zz-api-evangelist-control. Its 200s on /openapi.json and
+      /.well-known/agent-card.json are false positives, not documents.
+    documents:
+      - path: /zz-api-evangelist-control
+        status: 200
+        file: null
+        note: control probe — proves the 200s below are a catch-all, not a document
+      - path: /openapi.json
+        status: 200
+        file: null
+        note: HTML shell, not an OpenAPI document — treated as a MISS
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: null
+        note: HTML shell, not an AgentCard — treated as a MISS
+  - host: developer.amedisys.com
+    note: >-
+      NXDOMAIN. Named as humanURL in this repo's previous apis.yml; it has no DNS record and
+      has never resolved during any probe. Removed from apis.yml as a fabricated pointer.
+    documents:
+      - path: /
+        status: 0
+        file: null
+        note: '<no response> — DNS resolution failure'
+  - host: api.amedisys.com
+    note: >-
+      NXDOMAIN. Named as baseURL in this repo's previous apis.yml; no DNS record.
+      Removed from apis.yml as a fabricated pointer.
+    documents:
+      - path: /
+        status: 0
+        file: null
+        note: '<no response> — DNS resolution failure'
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -4,42 +4,43 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Amedisys
 providerId: amedisys
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-02'
+generated: '2026-09-02'
+method: searched
+source: >-
+  Searched amedisys.com in full on 2026-09-02 — sitemap, every top-level nav section, the
+  healthcare-providers hub and the partnering/referrals pages — for any pricing, plans, tiers or
+  API commercial terms. None exist. The corporate site has no /pricing, no developer portal and
+  no commercial API offering, and developer.amedisys.com and api.amedisys.com do not resolve.
+reconciled: true
+plan_count: 0
 tags:
   - Home Health
   - Hospice
   - Healthcare
 description: >-
-  Amedisys does not publish public API plans or pricing. Integrations with EHRs (Homecare Homebase), payer systems, and referral networks are governed by bilateral agreements under HIPAA. This artifact remains a scaffold pending publication of a public API commercial offering.
+  Amedisys publishes no API plans or pricing of any kind, because it publishes no API. It is a
+  home health, hospice and palliative care-delivery organization (an Optum subsidiary since
+  August 2025) whose revenue comes from Medicare, Medicaid, managed-care and commercial payer
+  reimbursement for clinical services, not from metered software access.
 notes: >-
-  Amedisys is a home health and hospice provider; it does not publish a public API developer portal or commercial API offering. Any data exchanges with payers, EHR systems, or referral partners are governed by HIPAA-compliant integration agreements rather than a public price list. Reconcile if Amedisys publishes a public API.
+  plan_count is 0 and that is the finding, not a gap in this profile. The previous version of
+  this artifact carried a single placeholder "Pricing Overview" plan written by the 2026-05-04
+  bulk sweep; it described nothing Amedisys publishes and has been removed rather than left to
+  read as a real tier. Any exchange of data with referral sources, EHR vendors or payers is
+  governed by bilateral integration contracts and HIPAA business-associate agreements, which are
+  not published. Reconcile only if Amedisys (or Optum under the Amedisys brand) publishes a
+  public API with commercial terms.
 sources:
-  - https://www.amedisys.com
-plans:
-  - id: amedisys-overview
-    name: Amedisys - Pricing Overview
-    type: enterprise
-    description: >-
-      Placeholder plan reflecting that Amedisys does not publish a public,
-      machine-readable API price list. Pricing is bespoke per engagement.
-    entries:
-      - label: API Access
-        name: api_access
-        type: flat
-        metric: varies
-        limit: -1
-        timeFrame: usage
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: false
-    elements:
-      - name: Negotiated Access
-      - name: Bilateral Agreement
+  - url: https://www.amedisys.com/
+    status: 200
+  - url: https://www.amedisys.com/sitemap.xml
+    status: 200
+  - url: https://www.amedisys.com/providers/partnering-with-us/
+    status: 200
+  - url: https://developer.amedisys.com/
+    status: 0
+plans: []
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

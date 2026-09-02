@@ -4,41 +4,40 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Amedisys
 providerId: amedisys
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-02'
+generated: '2026-09-02'
+method: searched
+source: >-
+  Searched amedisys.com on 2026-09-02 for any published rate limit, throttling policy, quota or
+  runtime rate-limit response headers. None exist, because Amedisys publishes no API: every
+  discovery path probed on www.amedisys.com returns a genuine 404 and the previously claimed
+  api.amedisys.com host has no DNS record.
+reconciled: true
+limit_count: 0
 tags:
   - Home Health
   - Hospice
   - Healthcare
   - Rate Limiting
 description: >-
-  Amedisys does not publish public API rate limits. Any partner integrations operate under per-contract throughput agreements with payer and EHR systems. Reconcile when Amedisys publishes public rate limit documentation.
+  Amedisys publishes no API rate limits. There is no API to limit — no developer portal, no
+  machine-readable contract, and no callable host. No RateLimit-*, X-RateLimit-* or Retry-After
+  header could be observed because no Amedisys API endpoint exists to return one.
 notes: >-
-  Amedisys is a home health and hospice provider; it does not publish a public API developer portal or commercial API offering. Any data exchanges with payers, EHR systems, or referral partners are governed by HIPAA-compliant integration agreements rather than a public price list. Reconcile if Amedisys publishes a public API.
+  limit_count is 0 and that is the honest finding. The previous version of this artifact carried
+  a placeholder limit row ("Undocumented - bilateral agreement") written by the 2026-05-04 bulk
+  sweep; it has been removed so an absence is not counted as a published limit. The
+  responseCodes block below is likewise removed rather than asserted, since no Amedisys endpoint
+  was ever observed returning 429 or 503.
 sources:
-  - https://www.amedisys.com
-responseCodes:
-  throttled: 429
-  serviceUnavailable: 503
-limits:
-  - name: Undocumented - bilateral agreement
-    scope: contract
-    metric: varies
-    limit: 'see partner agreement; not publicly documented'
-policies:
-  - name: Documentation Status
-    description: >-
-      Amedisys does not publish public per-second or per-minute API rate
-      limits. Throughput, concurrency, and burst behavior are governed by the
-      relevant partner, supplier, or merchant agreement.
-  - name: Backoff Strategy
-    description: >-
-      Where any HTTP API is exposed, clients should implement exponential
-      backoff with jitter and honor any Retry-After header returned on 429
-      or 503 responses.
+  - url: https://www.amedisys.com/
+    status: 200
+  - url: https://www.amedisys.com/api
+    status: 404
+  - url: https://api.amedisys.com/
+    status: 0
+limits: []
+policies: []
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
