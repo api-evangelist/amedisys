@@ -59,6 +59,8 @@ modified: '2026-10-06'
 specificationVersion: '0.23'
 apis: []
 common:
+  - type: FinOps
+    url: finops/amedisys-finops.yml
   - url: https://resources.amedisys.com/rss.xml
     type: BlogRSS
   - type: Website
