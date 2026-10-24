@@ -22,6 +22,16 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amedisys.p
 tags:
   - Company
   - Healthcare
+  - Home Care
+  - Hospice
+  - Palliative Care
+  - Health Systems
+  - Care Delivery
+  - Post-Acute Care
+  - Hospital at Home
+tags_raw:
+  - Company
+  - Healthcare
   - Home Health
   - Hospice
   - Palliative Care
